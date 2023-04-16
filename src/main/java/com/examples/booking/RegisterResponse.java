@@ -6,7 +6,7 @@ package com.examples.booking;
 /**
  * Protobuf type {@code maths.RegisterResponse}
  */
-public final class RegisterResponse extends
+public  final class RegisterResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:maths.RegisterResponse)
     RegisterResponseOrBuilder {
@@ -21,12 +21,60 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new RegisterResponse();
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
   }
+  private RegisterResponse(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
+            id_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            message_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.examples.booking.BookingServiceImpl.internal_static_maths_RegisterResponse_descriptor;
@@ -41,13 +89,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object id_ = "";
+  private volatile java.lang.Object id_;
   /**
    * <code>string id = 1;</code>
-   * @return The id.
    */
-  @java.lang.Override
   public java.lang.String getId() {
     java.lang.Object ref = id_;
     if (ref instanceof java.lang.String) {
@@ -62,9 +107,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string id = 1;</code>
-   * @return The bytes for id.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getIdBytes() {
     java.lang.Object ref = id_;
@@ -80,13 +123,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object message_ = "";
+  private volatile java.lang.Object message_;
   /**
    * <code>string message = 2;</code>
-   * @return The message.
    */
-  @java.lang.Override
   public java.lang.String getMessage() {
     java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
@@ -101,9 +141,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string message = 2;</code>
-   * @return The bytes for message.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getMessageBytes() {
     java.lang.Object ref = message_;
@@ -132,13 +170,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+    if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+    if (!getMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
     }
-    getUnknownFields().writeTo(output);
+    unknownFields.writeTo(output);
   }
 
   @java.lang.Override
@@ -147,13 +185,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(id_)) {
+    if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+    if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
     }
-    size += getUnknownFields().getSerializedSize();
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -168,12 +206,13 @@ private static final long serialVersionUID = 0L;
     }
     com.examples.booking.RegisterResponse other = (com.examples.booking.RegisterResponse) obj;
 
-    if (!getId()
-        .equals(other.getId())) return false;
-    if (!getMessage()
-        .equals(other.getMessage())) return false;
-    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-    return true;
+    boolean result = true;
+    result = result && getId()
+        .equals(other.getId());
+    result = result && getMessage()
+        .equals(other.getMessage());
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
   }
 
   @java.lang.Override
@@ -187,7 +226,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
-    hash = (29 * hash) + getUnknownFields().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -304,20 +343,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.examples.booking.RegisterResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       id_ = "";
+
       message_ = "";
+
       return this;
     }
 
@@ -344,21 +389,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.examples.booking.RegisterResponse buildPartial() {
       com.examples.booking.RegisterResponse result = new com.examples.booking.RegisterResponse(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.id_ = id_;
+      result.message_ = message_;
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.examples.booking.RegisterResponse result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.id_ = id_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.message_ = message_;
-      }
+    @java.lang.Override
+    public Builder clone() {
+      return (Builder) super.clone();
     }
-
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.examples.booking.RegisterResponse) {
@@ -373,15 +441,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.examples.booking.RegisterResponse.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.getUnknownFields());
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -396,48 +462,23 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
+      com.examples.booking.RegisterResponse parsedMessage = null;
       try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              id_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
-            case 18: {
-              message_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
-            default: {
-              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                done = true; // was an endgroup tag
-              }
-              break;
-            } // default:
-          } // switch (tag)
-        } // while (!done)
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.examples.booking.RegisterResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        onChanged();
-      } // finally
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
      * <code>string id = 1;</code>
-     * @return The id.
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -453,7 +494,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string id = 1;</code>
-     * @return The bytes for id.
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -470,38 +510,37 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string id = 1;</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       id_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string id = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearId() {
+      
       id_ = getDefaultInstance().getId();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string id = 1;</code>
-     * @param value The bytes for id to set.
-     * @return This builder for chaining.
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       id_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -509,7 +548,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <code>string message = 2;</code>
-     * @return The message.
      */
     public java.lang.String getMessage() {
       java.lang.Object ref = message_;
@@ -525,7 +563,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
-     * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
@@ -542,45 +579,44 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
-     * @param value The message to set.
-     * @return This builder for chaining.
      */
     public Builder setMessage(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       message_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>string message = 2;</code>
-     * @return This builder for chaining.
      */
     public Builder clearMessage() {
+      
       message_ = getDefaultInstance().getMessage();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <code>string message = 2;</code>
-     * @param value The bytes for message to set.
-     * @return This builder for chaining.
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       message_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
     @java.lang.Override
@@ -610,18 +646,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(builder.buildPartial());
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e)
-            .setUnfinishedMessage(builder.buildPartial());
-      }
-      return builder.buildPartial();
+      return new RegisterResponse(input, extensionRegistry);
     }
   };
 

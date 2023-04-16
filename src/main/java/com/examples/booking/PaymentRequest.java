@@ -6,7 +6,7 @@ package com.examples.booking;
 /**
  * Protobuf type {@code maths.PaymentRequest}
  */
-public final class PaymentRequest extends
+public  final class PaymentRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:maths.PaymentRequest)
     PaymentRequestOrBuilder {
@@ -16,16 +16,70 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private PaymentRequest() {
+    guestId_ = 0;
+    reservationId_ = 0;
     paymentMethod_ = 0;
   }
 
   @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new PaymentRequest();
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
   }
+  private PaymentRequest(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
 
+            guestId_ = input.readInt32();
+            break;
+          }
+          case 24: {
+
+            reservationId_ = input.readInt32();
+            break;
+          }
+          case 32: {
+            int rawValue = input.readEnum();
+
+            paymentMethod_ = rawValue;
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.examples.booking.BookingServiceImpl.internal_static_maths_PaymentRequest_descriptor;
@@ -90,8 +144,6 @@ private static final long serialVersionUID = 0L;
     }
 
     /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -99,10 +151,6 @@ private static final long serialVersionUID = 0L;
       return forNumber(value);
     }
 
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
     public static Method forNumber(int value) {
       switch (value) {
         case 0: return MOBILE_MONEY;
@@ -127,10 +175,6 @@ private static final long serialVersionUID = 0L;
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -166,42 +210,37 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GUESTID_FIELD_NUMBER = 1;
-  private int guestId_ = 0;
+  private int guestId_;
   /**
    * <code>int32 guestId = 1;</code>
-   * @return The guestId.
    */
-  @java.lang.Override
   public int getGuestId() {
     return guestId_;
   }
 
   public static final int RESERVATIONID_FIELD_NUMBER = 3;
-  private int reservationId_ = 0;
+  private int reservationId_;
   /**
    * <code>int32 reservationId = 3;</code>
-   * @return The reservationId.
    */
-  @java.lang.Override
   public int getReservationId() {
     return reservationId_;
   }
 
   public static final int PAYMENTMETHOD_FIELD_NUMBER = 4;
-  private int paymentMethod_ = 0;
+  private int paymentMethod_;
   /**
    * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-   * @return The enum numeric value on the wire for paymentMethod.
    */
-  @java.lang.Override public int getPaymentMethodValue() {
+  public int getPaymentMethodValue() {
     return paymentMethod_;
   }
   /**
    * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-   * @return The paymentMethod.
    */
-  @java.lang.Override public com.examples.booking.PaymentRequest.Method getPaymentMethod() {
-    com.examples.booking.PaymentRequest.Method result = com.examples.booking.PaymentRequest.Method.forNumber(paymentMethod_);
+  public com.examples.booking.PaymentRequest.Method getPaymentMethod() {
+    @SuppressWarnings("deprecation")
+    com.examples.booking.PaymentRequest.Method result = com.examples.booking.PaymentRequest.Method.valueOf(paymentMethod_);
     return result == null ? com.examples.booking.PaymentRequest.Method.UNRECOGNIZED : result;
   }
 
@@ -228,7 +267,7 @@ private static final long serialVersionUID = 0L;
     if (paymentMethod_ != com.examples.booking.PaymentRequest.Method.MOBILE_MONEY.getNumber()) {
       output.writeEnum(4, paymentMethod_);
     }
-    getUnknownFields().writeTo(output);
+    unknownFields.writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +288,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, paymentMethod_);
     }
-    size += getUnknownFields().getSerializedSize();
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -264,13 +303,14 @@ private static final long serialVersionUID = 0L;
     }
     com.examples.booking.PaymentRequest other = (com.examples.booking.PaymentRequest) obj;
 
-    if (getGuestId()
-        != other.getGuestId()) return false;
-    if (getReservationId()
-        != other.getReservationId()) return false;
-    if (paymentMethod_ != other.paymentMethod_) return false;
-    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-    return true;
+    boolean result = true;
+    result = result && (getGuestId()
+        == other.getGuestId());
+    result = result && (getReservationId()
+        == other.getReservationId());
+    result = result && paymentMethod_ == other.paymentMethod_;
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
   }
 
   @java.lang.Override
@@ -286,7 +326,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getReservationId();
     hash = (37 * hash) + PAYMENTMETHOD_FIELD_NUMBER;
     hash = (53 * hash) + paymentMethod_;
-    hash = (29 * hash) + getUnknownFields().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -403,21 +443,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.examples.booking.PaymentRequest.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       guestId_ = 0;
+
       reservationId_ = 0;
+
       paymentMethod_ = 0;
+
       return this;
     }
 
@@ -444,24 +491,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.examples.booking.PaymentRequest buildPartial() {
       com.examples.booking.PaymentRequest result = new com.examples.booking.PaymentRequest(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.guestId_ = guestId_;
+      result.reservationId_ = reservationId_;
+      result.paymentMethod_ = paymentMethod_;
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.examples.booking.PaymentRequest result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.guestId_ = guestId_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.reservationId_ = reservationId_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.paymentMethod_ = paymentMethod_;
-      }
+    @java.lang.Override
+    public Builder clone() {
+      return (Builder) super.clone();
     }
-
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.examples.booking.PaymentRequest) {
@@ -483,7 +551,7 @@ private static final long serialVersionUID = 0L;
       if (other.paymentMethod_ != 0) {
         setPaymentMethodValue(other.getPaymentMethodValue());
       }
-      this.mergeUnknownFields(other.getUnknownFields());
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -498,76 +566,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
+      com.examples.booking.PaymentRequest parsedMessage = null;
       try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              guestId_ = input.readInt32();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 8
-            case 24: {
-              reservationId_ = input.readInt32();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 24
-            case 32: {
-              paymentMethod_ = input.readEnum();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 32
-            default: {
-              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                done = true; // was an endgroup tag
-              }
-              break;
-            } // default:
-          } // switch (tag)
-        } // while (!done)
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.examples.booking.PaymentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        onChanged();
-      } // finally
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
       return this;
     }
-    private int bitField0_;
 
     private int guestId_ ;
     /**
      * <code>int32 guestId = 1;</code>
-     * @return The guestId.
      */
-    @java.lang.Override
     public int getGuestId() {
       return guestId_;
     }
     /**
      * <code>int32 guestId = 1;</code>
-     * @param value The guestId to set.
-     * @return This builder for chaining.
      */
     public Builder setGuestId(int value) {
-
+      
       guestId_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>int32 guestId = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearGuestId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       guestId_ = 0;
       onChanged();
       return this;
@@ -576,30 +609,24 @@ private static final long serialVersionUID = 0L;
     private int reservationId_ ;
     /**
      * <code>int32 reservationId = 3;</code>
-     * @return The reservationId.
      */
-    @java.lang.Override
     public int getReservationId() {
       return reservationId_;
     }
     /**
      * <code>int32 reservationId = 3;</code>
-     * @param value The reservationId to set.
-     * @return This builder for chaining.
      */
     public Builder setReservationId(int value) {
-
+      
       reservationId_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>int32 reservationId = 3;</code>
-     * @return This builder for chaining.
      */
     public Builder clearReservationId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       reservationId_ = 0;
       onChanged();
       return this;
@@ -608,51 +635,43 @@ private static final long serialVersionUID = 0L;
     private int paymentMethod_ = 0;
     /**
      * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-     * @return The enum numeric value on the wire for paymentMethod.
      */
-    @java.lang.Override public int getPaymentMethodValue() {
+    public int getPaymentMethodValue() {
       return paymentMethod_;
     }
     /**
      * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-     * @param value The enum numeric value on the wire for paymentMethod to set.
-     * @return This builder for chaining.
      */
     public Builder setPaymentMethodValue(int value) {
       paymentMethod_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-     * @return The paymentMethod.
      */
-    @java.lang.Override
     public com.examples.booking.PaymentRequest.Method getPaymentMethod() {
-      com.examples.booking.PaymentRequest.Method result = com.examples.booking.PaymentRequest.Method.forNumber(paymentMethod_);
+      @SuppressWarnings("deprecation")
+      com.examples.booking.PaymentRequest.Method result = com.examples.booking.PaymentRequest.Method.valueOf(paymentMethod_);
       return result == null ? com.examples.booking.PaymentRequest.Method.UNRECOGNIZED : result;
     }
     /**
      * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-     * @param value The paymentMethod to set.
-     * @return This builder for chaining.
      */
     public Builder setPaymentMethod(com.examples.booking.PaymentRequest.Method value) {
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000004;
+      
       paymentMethod_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-     * @return This builder for chaining.
      */
     public Builder clearPaymentMethod() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      
       paymentMethod_ = 0;
       onChanged();
       return this;
@@ -660,7 +679,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
     @java.lang.Override
@@ -690,18 +709,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(builder.buildPartial());
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e)
-            .setUnfinishedMessage(builder.buildPartial());
-      }
-      return builder.buildPartial();
+      return new PaymentRequest(input, extensionRegistry);
     }
   };
 

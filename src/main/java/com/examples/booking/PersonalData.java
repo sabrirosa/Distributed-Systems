@@ -6,7 +6,7 @@ package com.examples.booking;
 /**
  * Protobuf type {@code maths.PersonalData}
  */
-public final class PersonalData extends
+public  final class PersonalData extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:maths.PersonalData)
     PersonalDataOrBuilder {
@@ -17,16 +17,70 @@ private static final long serialVersionUID = 0L;
   }
   private PersonalData() {
     name_ = "";
+    pone_ = 0;
     email_ = "";
   }
 
   @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new PersonalData();
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
   }
+  private PersonalData(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
+            name_ = s;
+            break;
+          }
+          case 16: {
+
+            pone_ = input.readInt32();
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            email_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.examples.booking.BookingServiceImpl.internal_static_maths_PersonalData_descriptor;
@@ -41,13 +95,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object name_ = "";
+  private volatile java.lang.Object name_;
   /**
    * <code>string name = 1;</code>
-   * @return The name.
    */
-  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -62,9 +113,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 1;</code>
-   * @return The bytes for name.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -80,24 +129,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PONE_FIELD_NUMBER = 2;
-  private int pone_ = 0;
+  private int pone_;
   /**
    * <code>int32 pone = 2;</code>
-   * @return The pone.
    */
-  @java.lang.Override
   public int getPone() {
     return pone_;
   }
 
   public static final int EMAIL_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object email_ = "";
+  private volatile java.lang.Object email_;
   /**
    * <code>string email = 3;</code>
-   * @return The email.
    */
-  @java.lang.Override
   public java.lang.String getEmail() {
     java.lang.Object ref = email_;
     if (ref instanceof java.lang.String) {
@@ -112,9 +156,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string email = 3;</code>
-   * @return The bytes for email.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getEmailBytes() {
     java.lang.Object ref = email_;
@@ -143,16 +185,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+    if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     if (pone_ != 0) {
       output.writeInt32(2, pone_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+    if (!getEmailBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
     }
-    getUnknownFields().writeTo(output);
+    unknownFields.writeTo(output);
   }
 
   @java.lang.Override
@@ -161,17 +203,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
+    if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     if (pone_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, pone_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
+    if (!getEmailBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
     }
-    size += getUnknownFields().getSerializedSize();
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -186,14 +228,15 @@ private static final long serialVersionUID = 0L;
     }
     com.examples.booking.PersonalData other = (com.examples.booking.PersonalData) obj;
 
-    if (!getName()
-        .equals(other.getName())) return false;
-    if (getPone()
-        != other.getPone()) return false;
-    if (!getEmail()
-        .equals(other.getEmail())) return false;
-    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-    return true;
+    boolean result = true;
+    result = result && getName()
+        .equals(other.getName());
+    result = result && (getPone()
+        == other.getPone());
+    result = result && getEmail()
+        .equals(other.getEmail());
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
   }
 
   @java.lang.Override
@@ -209,7 +252,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPone();
     hash = (37 * hash) + EMAIL_FIELD_NUMBER;
     hash = (53 * hash) + getEmail().hashCode();
-    hash = (29 * hash) + getUnknownFields().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -326,21 +369,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.examples.booking.PersonalData.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       name_ = "";
+
       pone_ = 0;
+
       email_ = "";
+
       return this;
     }
 
@@ -367,24 +417,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.examples.booking.PersonalData buildPartial() {
       com.examples.booking.PersonalData result = new com.examples.booking.PersonalData(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.name_ = name_;
+      result.pone_ = pone_;
+      result.email_ = email_;
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.examples.booking.PersonalData result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.name_ = name_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.pone_ = pone_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.email_ = email_;
-      }
+    @java.lang.Override
+    public Builder clone() {
+      return (Builder) super.clone();
     }
-
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.examples.booking.PersonalData) {
@@ -399,7 +470,6 @@ private static final long serialVersionUID = 0L;
       if (other == com.examples.booking.PersonalData.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
-        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPone() != 0) {
@@ -407,10 +477,9 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.getUnknownFields());
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -425,53 +494,23 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
+      com.examples.booking.PersonalData parsedMessage = null;
       try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              name_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 10
-            case 16: {
-              pone_ = input.readInt32();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 16
-            case 26: {
-              email_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 26
-            default: {
-              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                done = true; // was an endgroup tag
-              }
-              break;
-            } // default:
-          } // switch (tag)
-        } // while (!done)
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.examples.booking.PersonalData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        onChanged();
-      } // finally
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
       return this;
     }
-    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
-     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -487,7 +526,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
-     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -504,38 +542,37 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
-     * @param value The name to set.
-     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       name_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>string name = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearName() {
+      
       name_ = getDefaultInstance().getName();
-      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>string name = 1;</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       name_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -543,30 +580,24 @@ private static final long serialVersionUID = 0L;
     private int pone_ ;
     /**
      * <code>int32 pone = 2;</code>
-     * @return The pone.
      */
-    @java.lang.Override
     public int getPone() {
       return pone_;
     }
     /**
      * <code>int32 pone = 2;</code>
-     * @param value The pone to set.
-     * @return This builder for chaining.
      */
     public Builder setPone(int value) {
-
+      
       pone_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>int32 pone = 2;</code>
-     * @return This builder for chaining.
      */
     public Builder clearPone() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      
       pone_ = 0;
       onChanged();
       return this;
@@ -575,7 +606,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object email_ = "";
     /**
      * <code>string email = 3;</code>
-     * @return The email.
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -591,7 +621,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string email = 3;</code>
-     * @return The bytes for email.
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -608,45 +637,44 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string email = 3;</code>
-     * @param value The email to set.
-     * @return This builder for chaining.
      */
     public Builder setEmail(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       email_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>string email = 3;</code>
-     * @return This builder for chaining.
      */
     public Builder clearEmail() {
+      
       email_ = getDefaultInstance().getEmail();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <code>string email = 3;</code>
-     * @param value The bytes for email to set.
-     * @return This builder for chaining.
      */
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       email_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
     @java.lang.Override
@@ -676,18 +704,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(builder.buildPartial());
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e)
-            .setUnfinishedMessage(builder.buildPartial());
-      }
-      return builder.buildPartial();
+      return new PersonalData(input, extensionRegistry);
     }
   };
 

@@ -9,24 +9,20 @@ public interface PaymentRequestOrBuilder extends
 
   /**
    * <code>int32 guestId = 1;</code>
-   * @return The guestId.
    */
   int getGuestId();
 
   /**
    * <code>int32 reservationId = 3;</code>
-   * @return The reservationId.
    */
   int getReservationId();
 
   /**
    * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-   * @return The enum numeric value on the wire for paymentMethod.
    */
   int getPaymentMethodValue();
   /**
    * <code>.maths.PaymentRequest.Method paymentMethod = 4;</code>
-   * @return The paymentMethod.
    */
   com.examples.booking.PaymentRequest.Method getPaymentMethod();
 }

@@ -6,7 +6,7 @@ package com.examples.booking;
 /**
  * Protobuf type {@code maths.ReservationRequest}
  */
-public final class ReservationRequest extends
+public  final class ReservationRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:maths.ReservationRequest)
     ReservationRequestOrBuilder {
@@ -16,18 +16,78 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ReservationRequest() {
+    guestId_ = 0;
     paymentConfirmation_ = "";
     startDate_ = "";
     endDate_ = "";
   }
 
   @java.lang.Override
-  @SuppressWarnings({"unused"})
-  protected java.lang.Object newInstance(
-      UnusedPrivateParameter unused) {
-    return new ReservationRequest();
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
   }
+  private ReservationRequest(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
 
+            guestId_ = input.readInt32();
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            paymentConfirmation_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            startDate_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            endDate_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.examples.booking.BookingServiceImpl.internal_static_maths_ReservationRequest_descriptor;
@@ -42,24 +102,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GUESTID_FIELD_NUMBER = 1;
-  private int guestId_ = 0;
+  private int guestId_;
   /**
    * <code>int32 guestId = 1;</code>
-   * @return The guestId.
    */
-  @java.lang.Override
   public int getGuestId() {
     return guestId_;
   }
 
   public static final int PAYMENTCONFIRMATION_FIELD_NUMBER = 2;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object paymentConfirmation_ = "";
+  private volatile java.lang.Object paymentConfirmation_;
   /**
    * <code>string paymentConfirmation = 2;</code>
-   * @return The paymentConfirmation.
    */
-  @java.lang.Override
   public java.lang.String getPaymentConfirmation() {
     java.lang.Object ref = paymentConfirmation_;
     if (ref instanceof java.lang.String) {
@@ -74,9 +129,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string paymentConfirmation = 2;</code>
-   * @return The bytes for paymentConfirmation.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getPaymentConfirmationBytes() {
     java.lang.Object ref = paymentConfirmation_;
@@ -92,13 +145,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STARTDATE_FIELD_NUMBER = 3;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object startDate_ = "";
+  private volatile java.lang.Object startDate_;
   /**
    * <code>string startDate = 3;</code>
-   * @return The startDate.
    */
-  @java.lang.Override
   public java.lang.String getStartDate() {
     java.lang.Object ref = startDate_;
     if (ref instanceof java.lang.String) {
@@ -113,9 +163,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string startDate = 3;</code>
-   * @return The bytes for startDate.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getStartDateBytes() {
     java.lang.Object ref = startDate_;
@@ -131,13 +179,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDDATE_FIELD_NUMBER = 4;
-  @SuppressWarnings("serial")
-  private volatile java.lang.Object endDate_ = "";
+  private volatile java.lang.Object endDate_;
   /**
    * <code>string endDate = 4;</code>
-   * @return The endDate.
    */
-  @java.lang.Override
   public java.lang.String getEndDate() {
     java.lang.Object ref = endDate_;
     if (ref instanceof java.lang.String) {
@@ -152,9 +197,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string endDate = 4;</code>
-   * @return The bytes for endDate.
    */
-  @java.lang.Override
   public com.google.protobuf.ByteString
       getEndDateBytes() {
     java.lang.Object ref = endDate_;
@@ -186,16 +229,16 @@ private static final long serialVersionUID = 0L;
     if (guestId_ != 0) {
       output.writeInt32(1, guestId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(paymentConfirmation_)) {
+    if (!getPaymentConfirmationBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, paymentConfirmation_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startDate_)) {
+    if (!getStartDateBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endDate_)) {
+    if (!getEndDateBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, endDate_);
     }
-    getUnknownFields().writeTo(output);
+    unknownFields.writeTo(output);
   }
 
   @java.lang.Override
@@ -208,16 +251,16 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, guestId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(paymentConfirmation_)) {
+    if (!getPaymentConfirmationBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, paymentConfirmation_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(startDate_)) {
+    if (!getStartDateBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, startDate_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endDate_)) {
+    if (!getEndDateBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, endDate_);
     }
-    size += getUnknownFields().getSerializedSize();
+    size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -232,16 +275,17 @@ private static final long serialVersionUID = 0L;
     }
     com.examples.booking.ReservationRequest other = (com.examples.booking.ReservationRequest) obj;
 
-    if (getGuestId()
-        != other.getGuestId()) return false;
-    if (!getPaymentConfirmation()
-        .equals(other.getPaymentConfirmation())) return false;
-    if (!getStartDate()
-        .equals(other.getStartDate())) return false;
-    if (!getEndDate()
-        .equals(other.getEndDate())) return false;
-    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
-    return true;
+    boolean result = true;
+    result = result && (getGuestId()
+        == other.getGuestId());
+    result = result && getPaymentConfirmation()
+        .equals(other.getPaymentConfirmation());
+    result = result && getStartDate()
+        .equals(other.getStartDate());
+    result = result && getEndDate()
+        .equals(other.getEndDate());
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
   }
 
   @java.lang.Override
@@ -259,7 +303,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStartDate().hashCode();
     hash = (37 * hash) + ENDDATE_FIELD_NUMBER;
     hash = (53 * hash) + getEndDate().hashCode();
-    hash = (29 * hash) + getUnknownFields().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -376,22 +420,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.examples.booking.ReservationRequest.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      bitField0_ = 0;
       guestId_ = 0;
+
       paymentConfirmation_ = "";
+
       startDate_ = "";
+
       endDate_ = "";
+
       return this;
     }
 
@@ -418,27 +470,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.examples.booking.ReservationRequest buildPartial() {
       com.examples.booking.ReservationRequest result = new com.examples.booking.ReservationRequest(this);
-      if (bitField0_ != 0) { buildPartial0(result); }
+      result.guestId_ = guestId_;
+      result.paymentConfirmation_ = paymentConfirmation_;
+      result.startDate_ = startDate_;
+      result.endDate_ = endDate_;
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(com.examples.booking.ReservationRequest result) {
-      int from_bitField0_ = bitField0_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.guestId_ = guestId_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.paymentConfirmation_ = paymentConfirmation_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.startDate_ = startDate_;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.endDate_ = endDate_;
-      }
+    @java.lang.Override
+    public Builder clone() {
+      return (Builder) super.clone();
     }
-
+    @java.lang.Override
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    @java.lang.Override
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    @java.lang.Override
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    @java.lang.Override
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    @java.lang.Override
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.examples.booking.ReservationRequest) {
@@ -456,20 +527,17 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPaymentConfirmation().isEmpty()) {
         paymentConfirmation_ = other.paymentConfirmation_;
-        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getStartDate().isEmpty()) {
         startDate_ = other.startDate_;
-        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getEndDate().isEmpty()) {
         endDate_ = other.endDate_;
-        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.getUnknownFields());
+      this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
     }
@@ -484,81 +552,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
+      com.examples.booking.ReservationRequest parsedMessage = null;
       try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              guestId_ = input.readInt32();
-              bitField0_ |= 0x00000001;
-              break;
-            } // case 8
-            case 18: {
-              paymentConfirmation_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
-              break;
-            } // case 18
-            case 26: {
-              startDate_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 26
-            case 34: {
-              endDate_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000008;
-              break;
-            } // case 34
-            default: {
-              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
-                done = true; // was an endgroup tag
-              }
-              break;
-            } // default:
-          } // switch (tag)
-        } // while (!done)
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.examples.booking.ReservationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        onChanged();
-      } // finally
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
       return this;
     }
-    private int bitField0_;
 
     private int guestId_ ;
     /**
      * <code>int32 guestId = 1;</code>
-     * @return The guestId.
      */
-    @java.lang.Override
     public int getGuestId() {
       return guestId_;
     }
     /**
      * <code>int32 guestId = 1;</code>
-     * @param value The guestId to set.
-     * @return This builder for chaining.
      */
     public Builder setGuestId(int value) {
-
+      
       guestId_ = value;
-      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <code>int32 guestId = 1;</code>
-     * @return This builder for chaining.
      */
     public Builder clearGuestId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      
       guestId_ = 0;
       onChanged();
       return this;
@@ -567,7 +595,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object paymentConfirmation_ = "";
     /**
      * <code>string paymentConfirmation = 2;</code>
-     * @return The paymentConfirmation.
      */
     public java.lang.String getPaymentConfirmation() {
       java.lang.Object ref = paymentConfirmation_;
@@ -583,7 +610,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string paymentConfirmation = 2;</code>
-     * @return The bytes for paymentConfirmation.
      */
     public com.google.protobuf.ByteString
         getPaymentConfirmationBytes() {
@@ -600,38 +626,37 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string paymentConfirmation = 2;</code>
-     * @param value The paymentConfirmation to set.
-     * @return This builder for chaining.
      */
     public Builder setPaymentConfirmation(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       paymentConfirmation_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <code>string paymentConfirmation = 2;</code>
-     * @return This builder for chaining.
      */
     public Builder clearPaymentConfirmation() {
+      
       paymentConfirmation_ = getDefaultInstance().getPaymentConfirmation();
-      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <code>string paymentConfirmation = 2;</code>
-     * @param value The bytes for paymentConfirmation to set.
-     * @return This builder for chaining.
      */
     public Builder setPaymentConfirmationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       paymentConfirmation_ = value;
-      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -639,7 +664,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object startDate_ = "";
     /**
      * <code>string startDate = 3;</code>
-     * @return The startDate.
      */
     public java.lang.String getStartDate() {
       java.lang.Object ref = startDate_;
@@ -655,7 +679,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string startDate = 3;</code>
-     * @return The bytes for startDate.
      */
     public com.google.protobuf.ByteString
         getStartDateBytes() {
@@ -672,38 +695,37 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string startDate = 3;</code>
-     * @param value The startDate to set.
-     * @return This builder for chaining.
      */
     public Builder setStartDate(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       startDate_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <code>string startDate = 3;</code>
-     * @return This builder for chaining.
      */
     public Builder clearStartDate() {
+      
       startDate_ = getDefaultInstance().getStartDate();
-      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <code>string startDate = 3;</code>
-     * @param value The bytes for startDate to set.
-     * @return This builder for chaining.
      */
     public Builder setStartDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       startDate_ = value;
-      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -711,7 +733,6 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object endDate_ = "";
     /**
      * <code>string endDate = 4;</code>
-     * @return The endDate.
      */
     public java.lang.String getEndDate() {
       java.lang.Object ref = endDate_;
@@ -727,7 +748,6 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string endDate = 4;</code>
-     * @return The bytes for endDate.
      */
     public com.google.protobuf.ByteString
         getEndDateBytes() {
@@ -744,45 +764,44 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string endDate = 4;</code>
-     * @param value The endDate to set.
-     * @return This builder for chaining.
      */
     public Builder setEndDate(
         java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       endDate_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>string endDate = 4;</code>
-     * @return This builder for chaining.
      */
     public Builder clearEndDate() {
+      
       endDate_ = getDefaultInstance().getEndDate();
-      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <code>string endDate = 4;</code>
-     * @param value The bytes for endDate to set.
-     * @return This builder for chaining.
      */
     public Builder setEndDateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
       endDate_ = value;
-      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFields(unknownFields);
+      return super.setUnknownFieldsProto3(unknownFields);
     }
 
     @java.lang.Override
@@ -812,18 +831,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(builder.buildPartial());
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(e)
-            .setUnfinishedMessage(builder.buildPartial());
-      }
-      return builder.buildPartial();
+      return new ReservationRequest(input, extensionRegistry);
     }
   };
 

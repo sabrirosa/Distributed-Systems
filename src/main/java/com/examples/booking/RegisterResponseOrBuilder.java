@@ -9,24 +9,20 @@ public interface RegisterResponseOrBuilder extends
 
   /**
    * <code>string id = 1;</code>
-   * @return The id.
    */
   java.lang.String getId();
   /**
    * <code>string id = 1;</code>
-   * @return The bytes for id.
    */
   com.google.protobuf.ByteString
       getIdBytes();
 
   /**
    * <code>string message = 2;</code>
-   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
-   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();

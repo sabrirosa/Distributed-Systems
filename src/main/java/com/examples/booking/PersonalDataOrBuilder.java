@@ -9,30 +9,25 @@ public interface PersonalDataOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
-   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
-   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>int32 pone = 2;</code>
-   * @return The pone.
    */
   int getPone();
 
   /**
    * <code>string email = 3;</code>
-   * @return The email.
    */
   java.lang.String getEmail();
   /**
    * <code>string email = 3;</code>
-   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
       getEmailBytes();
