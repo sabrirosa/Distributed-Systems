@@ -21,9 +21,9 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: booking.proto")
-public final class BookingGrpc {
+
+		
+		public final class BookingGrpc {
 
   private BookingGrpc() {}
 
