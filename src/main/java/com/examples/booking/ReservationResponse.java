@@ -37,7 +37,9 @@ private static final long serialVersionUID = 0L;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
-      boolean done = false;
+      // precisa alterar esse metodo 
+    	
+    	boolean done = false;
       while (!done) {
         int tag = input.readTag();
         switch (tag) {
