@@ -20,8 +20,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  * Interface exported by the server.
  * </pre>
  */
-@javax.annotation.Generated(
 
+// Review again - 17/04 12:40
+@javax.annotation.Generated(
+	    value = "by gRPC proto compiler (version 1.15.0)",
+	    comments = "Source: booking.proto")
 		
 		public final class BookingGrpc {
 
