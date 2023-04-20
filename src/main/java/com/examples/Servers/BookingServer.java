@@ -8,29 +8,27 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BookingServer {
-private Server server;
+    private static final Logger log = Logger.getLogger(BookingServer.class.getName());
 
-public static void main(String[] args) throws IOException, InterruptedException {
-final BookingServer server = new BookingServer();
-server.start();
-server.blockUntilShutdown();
-}
+    private Server server;
 
-private void start() throws IOException {
+public void start() throws IOException {
 int port = 50051;
 server = ServerBuilder.forPort(port)
 .addService(new BookingServiceImpl())
 .build()
 .start();
-System.out.println("Server started, listening on " + port);
+log.info("Server started, listening on "+port);
 Runtime.getRuntime().addShutdownHook(new Thread() {
 @Override
 public void run() {
-System.err.println("*** shutting down gRPC server since JVM is shutting down");
+    log.log(Level.WARNING,"*** shutting down gRPC server since JVM is shutting down");
 BookingServer.this.stop();
-System.err.println("*** server shut down");
+    log.log(Level.WARNING,"*** server shut down");
 }
 });
 }
@@ -41,7 +39,7 @@ server.shutdown();
 }
 }
 
-private void blockUntilShutdown() throws InterruptedException {
+public void blockUntilShutdown() throws InterruptedException {
 if (server != null) {
 server.awaitTermination();
 }

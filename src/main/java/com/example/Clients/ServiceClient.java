@@ -1,13 +1,16 @@
-package com.example.service;
-import com.example.booking.BookingRequest;
-import com.example.booking.BookingResponse;
-import com.example.booking.BookingServiceGrpc;
-import com.example.payment.PaymentRequest;
+package com.example.Clients;
+import com.example.booking.*;
+import com.example.payment.*;
 import com.example.payment.PaymentResponse;
 import com.example.payment.PaymentServiceGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
+
+import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -75,26 +78,22 @@ public class ServiceClient {
 
                     .build();
 
-            BookingResponse bookingResponse = bookingStub.bookRide(bookingRequest);
+            BookingResponse bookingResponse = bookingStub.makeBooking(bookingRequest);
 logger.info("Booking ID: " + bookingResponse.getBookingId());
 
 
             PaymentRequest paymentRequest = PaymentRequest.newBuilder()
 
-                    .setCardNumber(cardNumber)
+                    .setCreditCardNumber(cardNumber)
 
-                    .setCardExpiryDate(cardExpiryDate)
-
-                    .setCvv(cvv)
+                    .setExpiryDate(cardExpiryDate)
 
                     .setAmount(amount)
-
-                    .setBookingId(bookingResponse.getBookingId())
 
                     .build();
 
             PaymentResponse paymentResponse = paymentStub.makePayment(paymentRequest);
-logger.info("Payment ID: " + paymentResponse.getPaymentId());
+logger.info("Payment Successful: " + paymentResponse.getSuccess());
 
 
             return true;
@@ -108,8 +107,35 @@ logger.info("Payment ID: " + paymentResponse.getPaymentId());
         }
 
     }
+    public List<Booking> getBookings() {
+        logger.info("get booking");
+        GetBookingsRequest request= GetBookingsRequest.newBuilder().build();
+        GetBookingsResponse response=bookingStub.getBookings(request);
+        logger.info("returned data: "+response.getBookingsList().toString());
+        return response.getBookingsList();
+    }
+
+    //this is a test method
+    public static void main(String[] args) throws Exception {
+        ServiceClient client = new ServiceClient("localhost", 50051,"localhost",50052);
+        try {
+            String customerName = "John Doe";
+            String pickupLocation = "123 Main St";
+            String dropoffLocation = "456 Elm St";
+            LocalDateTime pickupDateTime = LocalDateTime.of(2023, 4, 20, 9, 0);
+            String creditCardNumber = "123 456 789";
+            String expiryDate = "2025 05 01";
+            float amount =200;
+            String cvv ="098";
+            client.bookAndPay(customerName, pickupLocation, dropoffLocation, String.valueOf(pickupDateTime),creditCardNumber,expiryDate,cvv,amount);
+        } finally {
+            client.shutdown();
+        }
+    }
 
 }
+
+
 
 
 

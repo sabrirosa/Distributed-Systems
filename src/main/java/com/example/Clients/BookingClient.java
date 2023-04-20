@@ -1,8 +1,15 @@
+package com.example.Clients;
+
+import com.example.booking.BookingRequest;
+import com.example.booking.BookingResponse;
+import com.example.booking.BookingServiceGrpc;
+import com.google.protobuf.Timestamp;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.concurrent.TimeUnit;
 
 public class BookingClient {
@@ -25,14 +32,14 @@ BookingRequest request = BookingRequest.newBuilder()
 .setCustomerName(customerName)
 .setPickupLocation(pickupLocation)
 .setDropoffLocation(dropoffLocation)
-.setPickupDateTime(Timestamp.newBuilder()
+.setPickupDateTime(String.valueOf(Timestamp.newBuilder()
 .setSeconds(pickupDateTime.toEpochSecond(ZoneOffset.UTC))
 .setNanos(pickupDateTime.getNano())
-.build())
+.build()))
 .build();
 try {
 BookingResponse response = blockingStub.makeBooking(request);
-System.out.println("Booking confirmation number: " + response.getConfirmationNumber());
+System.out.println("Server Response: " + response.getConfirmation());
 } catch (StatusRuntimeException e) {
 System.err.println("RPC failed: " + e.getStatus());
 }

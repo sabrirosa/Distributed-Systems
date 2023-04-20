@@ -1,7 +1,5 @@
 package com.example.Clients;
-import com.example.booking.BookingRequest;
-import com.example.booking.BookingResponse;
-import com.example.booking.BookingServiceGrpc;
+import com.example.booking.*;
 import com.example.payment.*;
 import com.example.payment.PaymentResponse;
 import com.example.payment.PaymentServiceGrpc;
@@ -10,6 +8,8 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -107,6 +107,15 @@ logger.info("Payment Successful: " + paymentResponse.getSuccess());
         }
 
     }
+    public List<Booking> getBookings() {
+        logger.info("get booking");
+        GetBookingsRequest request= GetBookingsRequest.newBuilder().build();
+        GetBookingsResponse response=bookingStub.getBookings(request);
+        logger.info("returned data: "+response.getBookingsList().toString());
+        return response.getBookingsList();
+    }
+
+    //this is a test method
     public static void main(String[] args) throws Exception {
         ServiceClient client = new ServiceClient("localhost", 50051,"localhost",50052);
         try {
@@ -123,6 +132,7 @@ logger.info("Payment Successful: " + paymentResponse.getSuccess());
             client.shutdown();
         }
     }
+
 }
 
 
