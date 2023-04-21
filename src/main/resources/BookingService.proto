@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example.booking";
-option java_outer_classname = "BookingProto";
+option java_package = "make_booking2";
+option java_outer_classname = "BookingService2_impl";
 
 service BookingService {
   rpc MakeBooking (BookingRequest) returns (BookingResponse) {}
