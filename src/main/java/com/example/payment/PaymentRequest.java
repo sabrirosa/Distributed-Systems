@@ -17,8 +17,9 @@ private static final long serialVersionUID = 0L;
   }
   private PaymentRequest() {
     customerName_ = "";
-    creditCardNumber_ = "";
+    cardNumber_ = "";
     expiryDate_ = "";
+    cvv_ = "";
   }
 
   @java.lang.Override
@@ -80,39 +81,39 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CREDIT_CARD_NUMBER_FIELD_NUMBER = 2;
+  public static final int CARD_NUMBER_FIELD_NUMBER = 2;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object creditCardNumber_ = "";
+  private volatile java.lang.Object cardNumber_ = "";
   /**
-   * <code>string credit_card_number = 2;</code>
-   * @return The creditCardNumber.
+   * <code>string card_number = 2;</code>
+   * @return The cardNumber.
    */
   @java.lang.Override
-  public java.lang.String getCreditCardNumber() {
-    java.lang.Object ref = creditCardNumber_;
+  public java.lang.String getCardNumber() {
+    java.lang.Object ref = cardNumber_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      creditCardNumber_ = s;
+      cardNumber_ = s;
       return s;
     }
   }
   /**
-   * <code>string credit_card_number = 2;</code>
-   * @return The bytes for creditCardNumber.
+   * <code>string card_number = 2;</code>
+   * @return The bytes for cardNumber.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getCreditCardNumberBytes() {
-    java.lang.Object ref = creditCardNumber_;
+      getCardNumberBytes() {
+    java.lang.Object ref = cardNumber_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      creditCardNumber_ = b;
+      cardNumber_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -169,6 +170,56 @@ private static final long serialVersionUID = 0L;
     return amount_;
   }
 
+  public static final int BOOKING_ID_FIELD_NUMBER = 5;
+  private int bookingId_ = 0;
+  /**
+   * <code>int32 booking_id = 5;</code>
+   * @return The bookingId.
+   */
+  @java.lang.Override
+  public int getBookingId() {
+    return bookingId_;
+  }
+
+  public static final int CVV_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cvv_ = "";
+  /**
+   * <code>string cvv = 6;</code>
+   * @return The cvv.
+   */
+  @java.lang.Override
+  public java.lang.String getCvv() {
+    java.lang.Object ref = cvv_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      cvv_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string cvv = 6;</code>
+   * @return The bytes for cvv.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getCvvBytes() {
+    java.lang.Object ref = cvv_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      cvv_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -186,14 +237,20 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customerName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, customerName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creditCardNumber_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, creditCardNumber_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cardNumber_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cardNumber_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiryDate_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, expiryDate_);
     }
     if (java.lang.Double.doubleToRawLongBits(amount_) != 0) {
       output.writeDouble(4, amount_);
+    }
+    if (bookingId_ != 0) {
+      output.writeInt32(5, bookingId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cvv_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, cvv_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -207,8 +264,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customerName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, customerName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(creditCardNumber_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, creditCardNumber_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cardNumber_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cardNumber_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expiryDate_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, expiryDate_);
@@ -216,6 +273,13 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(amount_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, amount_);
+    }
+    if (bookingId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, bookingId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cvv_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, cvv_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -234,13 +298,17 @@ private static final long serialVersionUID = 0L;
 
     if (!getCustomerName()
         .equals(other.getCustomerName())) return false;
-    if (!getCreditCardNumber()
-        .equals(other.getCreditCardNumber())) return false;
+    if (!getCardNumber()
+        .equals(other.getCardNumber())) return false;
     if (!getExpiryDate()
         .equals(other.getExpiryDate())) return false;
     if (java.lang.Double.doubleToLongBits(getAmount())
         != java.lang.Double.doubleToLongBits(
             other.getAmount())) return false;
+    if (getBookingId()
+        != other.getBookingId()) return false;
+    if (!getCvv()
+        .equals(other.getCvv())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -254,13 +322,17 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CUSTOMER_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getCustomerName().hashCode();
-    hash = (37 * hash) + CREDIT_CARD_NUMBER_FIELD_NUMBER;
-    hash = (53 * hash) + getCreditCardNumber().hashCode();
+    hash = (37 * hash) + CARD_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getCardNumber().hashCode();
     hash = (37 * hash) + EXPIRY_DATE_FIELD_NUMBER;
     hash = (53 * hash) + getExpiryDate().hashCode();
     hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getAmount()));
+    hash = (37 * hash) + BOOKING_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getBookingId();
+    hash = (37 * hash) + CVV_FIELD_NUMBER;
+    hash = (53 * hash) + getCvv().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -391,9 +463,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       customerName_ = "";
-      creditCardNumber_ = "";
+      cardNumber_ = "";
       expiryDate_ = "";
       amount_ = 0D;
+      bookingId_ = 0;
+      cvv_ = "";
       return this;
     }
 
@@ -431,13 +505,19 @@ private static final long serialVersionUID = 0L;
         result.customerName_ = customerName_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.creditCardNumber_ = creditCardNumber_;
+        result.cardNumber_ = cardNumber_;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.expiryDate_ = expiryDate_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.amount_ = amount_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bookingId_ = bookingId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cvv_ = cvv_;
       }
     }
 
@@ -458,8 +538,8 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (!other.getCreditCardNumber().isEmpty()) {
-        creditCardNumber_ = other.creditCardNumber_;
+      if (!other.getCardNumber().isEmpty()) {
+        cardNumber_ = other.cardNumber_;
         bitField0_ |= 0x00000002;
         onChanged();
       }
@@ -470,6 +550,14 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAmount() != 0D) {
         setAmount(other.getAmount());
+      }
+      if (other.getBookingId() != 0) {
+        setBookingId(other.getBookingId());
+      }
+      if (!other.getCvv().isEmpty()) {
+        cvv_ = other.cvv_;
+        bitField0_ |= 0x00000020;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -503,7 +591,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 18: {
-              creditCardNumber_ = input.readStringRequireUtf8();
+              cardNumber_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000002;
               break;
             } // case 18
@@ -517,6 +605,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 33
+            case 40: {
+              bookingId_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              cvv_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -606,73 +704,73 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object creditCardNumber_ = "";
+    private java.lang.Object cardNumber_ = "";
     /**
-     * <code>string credit_card_number = 2;</code>
-     * @return The creditCardNumber.
+     * <code>string card_number = 2;</code>
+     * @return The cardNumber.
      */
-    public java.lang.String getCreditCardNumber() {
-      java.lang.Object ref = creditCardNumber_;
+    public java.lang.String getCardNumber() {
+      java.lang.Object ref = cardNumber_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        creditCardNumber_ = s;
+        cardNumber_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string credit_card_number = 2;</code>
-     * @return The bytes for creditCardNumber.
+     * <code>string card_number = 2;</code>
+     * @return The bytes for cardNumber.
      */
     public com.google.protobuf.ByteString
-        getCreditCardNumberBytes() {
-      java.lang.Object ref = creditCardNumber_;
+        getCardNumberBytes() {
+      java.lang.Object ref = cardNumber_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        creditCardNumber_ = b;
+        cardNumber_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string credit_card_number = 2;</code>
-     * @param value The creditCardNumber to set.
+     * <code>string card_number = 2;</code>
+     * @param value The cardNumber to set.
      * @return This builder for chaining.
      */
-    public Builder setCreditCardNumber(
+    public Builder setCardNumber(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      creditCardNumber_ = value;
+      cardNumber_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>string credit_card_number = 2;</code>
+     * <code>string card_number = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearCreditCardNumber() {
-      creditCardNumber_ = getDefaultInstance().getCreditCardNumber();
+    public Builder clearCardNumber() {
+      cardNumber_ = getDefaultInstance().getCardNumber();
       bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
-     * <code>string credit_card_number = 2;</code>
-     * @param value The bytes for creditCardNumber to set.
+     * <code>string card_number = 2;</code>
+     * @param value The bytes for cardNumber to set.
      * @return This builder for chaining.
      */
-    public Builder setCreditCardNumberBytes(
+    public Builder setCardNumberBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      creditCardNumber_ = value;
+      cardNumber_ = value;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
@@ -778,6 +876,110 @@ private static final long serialVersionUID = 0L;
     public Builder clearAmount() {
       bitField0_ = (bitField0_ & ~0x00000008);
       amount_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private int bookingId_ ;
+    /**
+     * <code>int32 booking_id = 5;</code>
+     * @return The bookingId.
+     */
+    @java.lang.Override
+    public int getBookingId() {
+      return bookingId_;
+    }
+    /**
+     * <code>int32 booking_id = 5;</code>
+     * @param value The bookingId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBookingId(int value) {
+
+      bookingId_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 booking_id = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBookingId() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      bookingId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object cvv_ = "";
+    /**
+     * <code>string cvv = 6;</code>
+     * @return The cvv.
+     */
+    public java.lang.String getCvv() {
+      java.lang.Object ref = cvv_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cvv_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string cvv = 6;</code>
+     * @return The bytes for cvv.
+     */
+    public com.google.protobuf.ByteString
+        getCvvBytes() {
+      java.lang.Object ref = cvv_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cvv_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string cvv = 6;</code>
+     * @param value The cvv to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCvv(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      cvv_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cvv = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCvv() {
+      cvv_ = getDefaultInstance().getCvv();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cvv = 6;</code>
+     * @param value The bytes for cvv to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCvvBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      cvv_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }

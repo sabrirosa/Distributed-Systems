@@ -39,6 +39,21 @@ public final class BookingProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetBookingsResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Room_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Room_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetRoomsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetRoomsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetRoomsResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetRoomsResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -48,21 +63,28 @@ public final class BookingProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024BookingService.proto\"t\n\016BookingRequest" +
-      "\022\025\n\rcustomer_name\030\001 \001(\t\022\027\n\017pickup_locati" +
-      "on\030\002 \001(\t\022\030\n\020dropoff_location\030\003 \001(\t\022\030\n\020pi" +
-      "ckup_date_time\030\004 \001(\t\";\n\017BookingResponse\022" +
-      "\022\n\nbooking_id\030\001 \001(\t\022\024\n\014confirmation\030\002 \001(" +
-      "\t\"\201\001\n\007Booking\022\022\n\nbooking_id\030\001 \001(\t\022\025\n\rcus" +
-      "tomer_name\030\002 \001(\t\022\027\n\017pickup_location\030\003 \001(" +
-      "\t\022\030\n\020dropoff_location\030\004 \001(\t\022\030\n\020pickup_da" +
-      "te_time\030\005 \001(\t\"\024\n\022GetBookingsRequest\"1\n\023G" +
-      "etBookingsResponse\022\032\n\010bookings\030\001 \003(\0132\010.B" +
-      "ooking2\200\001\n\016BookingService\0222\n\013MakeBooking" +
-      "\022\017.BookingRequest\032\020.BookingResponse\"\000\022:\n" +
-      "\013GetBookings\022\023.GetBookingsRequest\032\024.GetB" +
-      "ookingsResponse\"\000B%\n\023com.example.booking" +
-      "B\014BookingProtoP\001b\006proto3"
+      "\n\024BookingService.proto\"\215\001\n\016BookingReques" +
+      "t\022\025\n\rcustomer_name\030\001 \001(\t\022\013\n\003age\030\002 \001(\t\022\r\n" +
+      "\005email\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\nstart_dat" +
+      "e\030\005 \001(\t\022\020\n\010end_date\030\006 \001(\t\022\023\n\013room_number" +
+      "\030\007 \001(\t\";\n\017BookingResponse\022\022\n\nbooking_id\030" +
+      "\001 \001(\t\022\024\n\014confirmation\030\002 \001(\t\"\222\001\n\007Booking\022" +
+      "\025\n\rcustomer_name\030\001 \001(\t\022\013\n\003age\030\002 \001(\t\022\r\n\005e" +
+      "mail\030\003 \001(\t\022\r\n\005phone\030\004 \001(\t\022\022\n\nstart_date\030" +
+      "\005 \001(\t\022\020\n\010end_date\030\006 \001(\t\022\n\n\002id\030\007 \001(\005\022\023\n\013r" +
+      "oom_number\030\010 \001(\t\"\024\n\022GetBookingsRequest\"1" +
+      "\n\023GetBookingsResponse\022\032\n\010bookings\030\001 \003(\0132" +
+      "\010.Booking\"T\n\004Room\022\023\n\013room_number\030\001 \001(\t\022\021" +
+      "\n\troom_name\030\002 \001(\t\022\024\n\014availability\030\003 \001(\t\022" +
+      "\016\n\006amount\030\004 \001(\001\"#\n\017GetRoomsRequest\022\020\n\010bo" +
+      "okings\030\001 \001(\t\"(\n\020GetRoomsResponse\022\024\n\005room" +
+      "s\030\001 \003(\0132\005.Room2\263\001\n\016BookingService\0222\n\013Mak" +
+      "eBooking\022\017.BookingRequest\032\020.BookingRespo" +
+      "nse\"\000\022:\n\013GetBookings\022\023.GetBookingsReques" +
+      "t\032\024.GetBookingsResponse\"\000\0221\n\010GetRooms\022\020." +
+      "GetRoomsRequest\032\021.GetRoomsResponse\"\000B%\n\023" +
+      "com.example.bookingB\014BookingProtoP\001b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -73,7 +95,7 @@ public final class BookingProto {
     internal_static_BookingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_BookingRequest_descriptor,
-        new java.lang.String[] { "CustomerName", "PickupLocation", "DropoffLocation", "PickupDateTime", });
+        new java.lang.String[] { "CustomerName", "Age", "Email", "Phone", "StartDate", "EndDate", "RoomNumber", });
     internal_static_BookingResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_BookingResponse_fieldAccessorTable = new
@@ -85,7 +107,7 @@ public final class BookingProto {
     internal_static_Booking_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Booking_descriptor,
-        new java.lang.String[] { "BookingId", "CustomerName", "PickupLocation", "DropoffLocation", "PickupDateTime", });
+        new java.lang.String[] { "CustomerName", "Age", "Email", "Phone", "StartDate", "EndDate", "Id", "RoomNumber", });
     internal_static_GetBookingsRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_GetBookingsRequest_fieldAccessorTable = new
@@ -98,6 +120,24 @@ public final class BookingProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetBookingsResponse_descriptor,
         new java.lang.String[] { "Bookings", });
+    internal_static_Room_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Room_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Room_descriptor,
+        new java.lang.String[] { "RoomNumber", "RoomName", "Availability", "Amount", });
+    internal_static_GetRoomsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_GetRoomsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetRoomsRequest_descriptor,
+        new java.lang.String[] { "Bookings", });
+    internal_static_GetRoomsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_GetRoomsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetRoomsResponse_descriptor,
+        new java.lang.String[] { "Rooms", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

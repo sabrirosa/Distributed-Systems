@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.reports";
+option java_outer_classname = "ReportProto";
+
+
+service ReportService {
+rpc SendEmail (EmailRequest) returns (EmailResponse) {}
+}
+message EmailRequest {
+  string email = 1;
+  string subject = 2;
+  string message = 3;
+}
+
+message EmailResponse {
+  bool success = 1;
+  string message = 2;
+}

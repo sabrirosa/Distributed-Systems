@@ -8,62 +8,92 @@ public interface BookingOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string booking_id = 1;</code>
-   * @return The bookingId.
-   */
-  java.lang.String getBookingId();
-  /**
-   * <code>string booking_id = 1;</code>
-   * @return The bytes for bookingId.
-   */
-  com.google.protobuf.ByteString
-      getBookingIdBytes();
-
-  /**
-   * <code>string customer_name = 2;</code>
+   * <code>string customer_name = 1;</code>
    * @return The customerName.
    */
   java.lang.String getCustomerName();
   /**
-   * <code>string customer_name = 2;</code>
+   * <code>string customer_name = 1;</code>
    * @return The bytes for customerName.
    */
   com.google.protobuf.ByteString
       getCustomerNameBytes();
 
   /**
-   * <code>string pickup_location = 3;</code>
-   * @return The pickupLocation.
+   * <code>string age = 2;</code>
+   * @return The age.
    */
-  java.lang.String getPickupLocation();
+  java.lang.String getAge();
   /**
-   * <code>string pickup_location = 3;</code>
-   * @return The bytes for pickupLocation.
+   * <code>string age = 2;</code>
+   * @return The bytes for age.
    */
   com.google.protobuf.ByteString
-      getPickupLocationBytes();
+      getAgeBytes();
 
   /**
-   * <code>string dropoff_location = 4;</code>
-   * @return The dropoffLocation.
+   * <code>string email = 3;</code>
+   * @return The email.
    */
-  java.lang.String getDropoffLocation();
+  java.lang.String getEmail();
   /**
-   * <code>string dropoff_location = 4;</code>
-   * @return The bytes for dropoffLocation.
+   * <code>string email = 3;</code>
+   * @return The bytes for email.
    */
   com.google.protobuf.ByteString
-      getDropoffLocationBytes();
+      getEmailBytes();
 
   /**
-   * <code>string pickup_date_time = 5;</code>
-   * @return The pickupDateTime.
+   * <code>string phone = 4;</code>
+   * @return The phone.
    */
-  java.lang.String getPickupDateTime();
+  java.lang.String getPhone();
   /**
-   * <code>string pickup_date_time = 5;</code>
-   * @return The bytes for pickupDateTime.
+   * <code>string phone = 4;</code>
+   * @return The bytes for phone.
    */
   com.google.protobuf.ByteString
-      getPickupDateTimeBytes();
+      getPhoneBytes();
+
+  /**
+   * <code>string start_date = 5;</code>
+   * @return The startDate.
+   */
+  java.lang.String getStartDate();
+  /**
+   * <code>string start_date = 5;</code>
+   * @return The bytes for startDate.
+   */
+  com.google.protobuf.ByteString
+      getStartDateBytes();
+
+  /**
+   * <code>string end_date = 6;</code>
+   * @return The endDate.
+   */
+  java.lang.String getEndDate();
+  /**
+   * <code>string end_date = 6;</code>
+   * @return The bytes for endDate.
+   */
+  com.google.protobuf.ByteString
+      getEndDateBytes();
+
+  /**
+   * <code>int32 id = 7;</code>
+   * @return The id.
+   */
+  int getId();
+
+  /**
+   * <code>string room_number = 8;</code>
+   * @return The roomNumber.
+   */
+  java.lang.String getRoomNumber();
+  /**
+   * <code>string room_number = 8;</code>
+   * @return The bytes for roomNumber.
+   */
+  com.google.protobuf.ByteString
+      getRoomNumberBytes();
 }

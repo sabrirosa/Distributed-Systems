@@ -77,6 +77,37 @@ public final class BookingServiceGrpc {
     return getGetBookingsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.example.booking.GetRoomsRequest,
+      com.example.booking.GetRoomsResponse> getGetRoomsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetRooms",
+      requestType = com.example.booking.GetRoomsRequest.class,
+      responseType = com.example.booking.GetRoomsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.example.booking.GetRoomsRequest,
+      com.example.booking.GetRoomsResponse> getGetRoomsMethod() {
+    io.grpc.MethodDescriptor<com.example.booking.GetRoomsRequest, com.example.booking.GetRoomsResponse> getGetRoomsMethod;
+    if ((getGetRoomsMethod = BookingServiceGrpc.getGetRoomsMethod) == null) {
+      synchronized (BookingServiceGrpc.class) {
+        if ((getGetRoomsMethod = BookingServiceGrpc.getGetRoomsMethod) == null) {
+          BookingServiceGrpc.getGetRoomsMethod = getGetRoomsMethod =
+              io.grpc.MethodDescriptor.<com.example.booking.GetRoomsRequest, com.example.booking.GetRoomsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetRooms"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.booking.GetRoomsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.example.booking.GetRoomsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new BookingServiceMethodDescriptorSupplier("GetRooms"))
+              .build();
+        }
+      }
+    }
+    return getGetRoomsMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class BookingServiceGrpc {
         io.grpc.stub.StreamObserver<com.example.booking.GetBookingsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetBookingsMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void getRooms(com.example.booking.GetRoomsRequest request,
+        io.grpc.stub.StreamObserver<com.example.booking.GetRoomsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRoomsMethod(), responseObserver);
+    }
   }
 
   /**
@@ -182,6 +220,14 @@ public final class BookingServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetBookingsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getRooms(com.example.booking.GetRoomsRequest request,
+        io.grpc.stub.StreamObserver<com.example.booking.GetRoomsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetRoomsMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -212,6 +258,13 @@ public final class BookingServiceGrpc {
     public com.example.booking.GetBookingsResponse getBookings(com.example.booking.GetBookingsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetBookingsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.example.booking.GetRoomsResponse getRooms(com.example.booking.GetRoomsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetRoomsMethod(), getCallOptions(), request);
     }
   }
 
@@ -246,10 +299,19 @@ public final class BookingServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetBookingsMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.example.booking.GetRoomsResponse> getRooms(
+        com.example.booking.GetRoomsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetRoomsMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_MAKE_BOOKING = 0;
   private static final int METHODID_GET_BOOKINGS = 1;
+  private static final int METHODID_GET_ROOMS = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -275,6 +337,10 @@ public final class BookingServiceGrpc {
         case METHODID_GET_BOOKINGS:
           serviceImpl.getBookings((com.example.booking.GetBookingsRequest) request,
               (io.grpc.stub.StreamObserver<com.example.booking.GetBookingsResponse>) responseObserver);
+          break;
+        case METHODID_GET_ROOMS:
+          serviceImpl.getRooms((com.example.booking.GetRoomsRequest) request,
+              (io.grpc.stub.StreamObserver<com.example.booking.GetRoomsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -308,6 +374,13 @@ public final class BookingServiceGrpc {
               com.example.booking.GetBookingsRequest,
               com.example.booking.GetBookingsResponse>(
                 service, METHODID_GET_BOOKINGS)))
+        .addMethod(
+          getGetRoomsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              com.example.booking.GetRoomsRequest,
+              com.example.booking.GetRoomsResponse>(
+                service, METHODID_GET_ROOMS)))
         .build();
   }
 
@@ -358,6 +431,7 @@ public final class BookingServiceGrpc {
               .setSchemaDescriptor(new BookingServiceFileDescriptorSupplier())
               .addMethod(getMakeBookingMethod())
               .addMethod(getGetBookingsMethod())
+              .addMethod(getGetRoomsMethod())
               .build();
         }
       }

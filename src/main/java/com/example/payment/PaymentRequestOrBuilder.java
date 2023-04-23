@@ -20,16 +20,16 @@ public interface PaymentRequestOrBuilder extends
       getCustomerNameBytes();
 
   /**
-   * <code>string credit_card_number = 2;</code>
-   * @return The creditCardNumber.
+   * <code>string card_number = 2;</code>
+   * @return The cardNumber.
    */
-  java.lang.String getCreditCardNumber();
+  java.lang.String getCardNumber();
   /**
-   * <code>string credit_card_number = 2;</code>
-   * @return The bytes for creditCardNumber.
+   * <code>string card_number = 2;</code>
+   * @return The bytes for cardNumber.
    */
   com.google.protobuf.ByteString
-      getCreditCardNumberBytes();
+      getCardNumberBytes();
 
   /**
    * <code>string expiry_date = 3;</code>
@@ -48,4 +48,22 @@ public interface PaymentRequestOrBuilder extends
    * @return The amount.
    */
   double getAmount();
+
+  /**
+   * <code>int32 booking_id = 5;</code>
+   * @return The bookingId.
+   */
+  int getBookingId();
+
+  /**
+   * <code>string cvv = 6;</code>
+   * @return The cvv.
+   */
+  java.lang.String getCvv();
+  /**
+   * <code>string cvv = 6;</code>
+   * @return The bytes for cvv.
+   */
+  com.google.protobuf.ByteString
+      getCvvBytes();
 }

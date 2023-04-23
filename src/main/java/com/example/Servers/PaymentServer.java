@@ -23,12 +23,12 @@ server = ServerBuilder.forPort(port)
 .addService(new PaymentServiceImpl())
 .build()
 .start();
-logger.info("Server started, listening on " + port);
+logger.info("PaymentServer started, listening on " + port);
 Runtime.getRuntime().addShutdownHook(new Thread(() -> {
 // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-System.err.println("*** shutting down gRPC server since JVM is shutting down");
+System.err.println("*** shutting down PaymentServer since JVM is shutting down");
 PaymentServer.this.stop();
-System.err.println("*** server shut down");
+System.err.println("*** PaymentServer shut down");
 }));
 }
 
@@ -55,14 +55,14 @@ static class PaymentServiceImpl extends PaymentServiceGrpc.PaymentServiceImplBas
 @Override
 public void makePayment(PaymentRequest request, StreamObserver<PaymentResponse> responseObserver) {
 boolean success;
-    logger.info("Received payment from card number: "+request.getCreditCardNumber());
+    logger.info("Received payment from card number: "+request.getCardNumber());
     String message = "";
-if (request.getAmount() > 0) {
+if (request.getAmount() > 50) {
 success = true;
 message = "Payment successful.";
 } else {
 success = false;
-message = "Payment failed: invalid amount.";
+message = "Payment failed: "+request.getAmount()+" is not enough for the room";
 }
 PaymentResponse response = PaymentResponse.newBuilder()
 .setSuccess(success)

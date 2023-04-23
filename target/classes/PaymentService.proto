@@ -10,9 +10,11 @@ rpc MakePayment (PaymentRequest) returns (PaymentResponse) {}
 }
 message PaymentRequest {
   string customer_name = 1;
-  string credit_card_number = 2;
+  string card_number = 2;
   string expiry_date = 3;
   double amount = 4;
+  int32 booking_id=5;
+  string cvv=6;
 }
 
 message PaymentResponse {

@@ -1,19 +1,23 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "make_booking2";
-option java_outer_classname = "BookingService2_impl";
+option java_package = "com.example.booking";
+option java_outer_classname = "BookingProto";
 
 service BookingService {
   rpc MakeBooking (BookingRequest) returns (BookingResponse) {}
   rpc GetBookings (GetBookingsRequest) returns (GetBookingsResponse) {}
+  rpc GetRooms (GetRoomsRequest) returns (GetRoomsResponse) {}
 }
 
 message BookingRequest {
   string customer_name = 1;
-  string pickup_location = 2;
-  string dropoff_location = 3;
-  string pickup_date_time = 4;
+  string age = 2;
+  string email = 3;
+  string phone = 4;
+  string start_date = 5;
+  string end_date = 6;
+  string room_number = 7;
 }
 
 message BookingResponse {
@@ -21,16 +25,34 @@ message BookingResponse {
   string confirmation = 2;
 }
 
+
 message Booking {
-  string booking_id = 1;
-  string customer_name = 2;
-  string pickup_location = 3;
-  string dropoff_location = 4;
-  string pickup_date_time = 5;
+  string customer_name = 1;
+  string age = 2;
+  string email = 3;
+  string phone = 4;
+  string start_date = 5;
+  string end_date = 6;
+  int32 id=7;
+  string room_number = 8;
+
 }
 
 message GetBookingsRequest {}
 
 message GetBookingsResponse {
   repeated Booking bookings = 1;
+}
+message Room {
+  string room_number = 1;
+  string room_name  = 2;
+  string availability  = 3;
+  double amount  = 4;
+}
+
+message GetRoomsRequest {
+  string bookings = 1;
+}
+message GetRoomsResponse {
+  repeated Room rooms = 1;
 }

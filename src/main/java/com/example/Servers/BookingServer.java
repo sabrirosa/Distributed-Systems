@@ -8,6 +8,8 @@ import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
+import java.util.Random;
+import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,16 +50,23 @@ server.awaitTermination();
 private static class BookingServiceImpl extends BookingServiceGrpc.BookingServiceImplBase {
 @Override
 public void makeBooking(BookingRequest request, StreamObserver<BookingResponse> responseObserver) {
-    System.out.println("processing Booking request for: "+request.getCustomerName());
-// logic to make booking
-String bookingId = "123";
-String confirmation = "Booking successful";
+    log.info("processing Booking request for: " + request.getCustomerName());
 
-BookingResponse response = BookingResponse.newBuilder()
-.setBookingId(bookingId)
-.setConfirmation(confirmation)
-.build();
+    // Generate a random integer for bookingId
+    Random rand = new Random();
+    int bookingId = rand.nextInt(1000);
 
+    // Create a new BookingResponse object
+    BookingResponse response = BookingResponse.newBuilder()
+            .setBookingId(String.valueOf(bookingId))
+            .setConfirmation("Booking successful")
+            .build();
+
+    // Push the booking request onto the stack
+    Stack<BookingRequest> bookingRequests = new Stack<>();
+    bookingRequests.push(request);
+
+    // Send the response to the client
 responseObserver.onNext(response);
 responseObserver.onCompleted();
 }

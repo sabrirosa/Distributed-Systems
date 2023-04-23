@@ -33,14 +33,15 @@ public final class PaymentProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024PaymentService.proto\"h\n\016PaymentRequest" +
-      "\022\025\n\rcustomer_name\030\001 \001(\t\022\032\n\022credit_card_n" +
-      "umber\030\002 \001(\t\022\023\n\013expiry_date\030\003 \001(\t\022\016\n\006amou" +
-      "nt\030\004 \001(\001\"3\n\017PaymentResponse\022\017\n\007success\030\001" +
-      " \001(\010\022\017\n\007message\030\002 \001(\t2D\n\016PaymentService\022" +
-      "2\n\013MakePayment\022\017.PaymentRequest\032\020.Paymen" +
-      "tResponse\"\000B%\n\023com.example.paymentB\014Paym" +
-      "entProtoP\001b\006proto3"
+      "\n\024PaymentService.proto\"\202\001\n\016PaymentReques" +
+      "t\022\025\n\rcustomer_name\030\001 \001(\t\022\023\n\013card_number\030" +
+      "\002 \001(\t\022\023\n\013expiry_date\030\003 \001(\t\022\016\n\006amount\030\004 \001" +
+      "(\001\022\022\n\nbooking_id\030\005 \001(\005\022\013\n\003cvv\030\006 \001(\t\"3\n\017P" +
+      "aymentResponse\022\017\n\007success\030\001 \001(\010\022\017\n\007messa" +
+      "ge\030\002 \001(\t2D\n\016PaymentService\0222\n\013MakePaymen" +
+      "t\022\017.PaymentRequest\032\020.PaymentResponse\"\000B%" +
+      "\n\023com.example.paymentB\014PaymentProtoP\001b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -51,7 +52,7 @@ public final class PaymentProto {
     internal_static_PaymentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PaymentRequest_descriptor,
-        new java.lang.String[] { "CustomerName", "CreditCardNumber", "ExpiryDate", "Amount", });
+        new java.lang.String[] { "CustomerName", "CardNumber", "ExpiryDate", "Amount", "BookingId", "Cvv", });
     internal_static_PaymentResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_PaymentResponse_fieldAccessorTable = new
