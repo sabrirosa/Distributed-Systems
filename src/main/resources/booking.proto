@@ -2,8 +2,8 @@ syntax = "proto3";
 
 
 option java_multiple_files = true;
-option java_package = "com.examples.booking";
-option java_outer_classname = "BookingServiceImpl";
+option java_package = "reservation_booking1";
+option java_outer_classname = "BookingService_Impl";
 
 package maths;
 
